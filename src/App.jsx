@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
 
-/* ─── Global ─────────────────────────────────────────────── */
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
 
@@ -12,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     --surface:   #fffdf5;
     --ink:       #2d2a26;
     --ink-muted: #7a7060;
-    --accent:    #c94a1e;
+    --accent:    #1a1a1a;
     --border:    2px solid #2d2a26;
     --shadow:    4px 4px 0 #2d2a26;
     --font-display: 'VT323', monospace;
@@ -25,7 +24,6 @@ const GlobalStyle = createGlobalStyle`
   a:hover { text-decoration: underline; }
 `;
 
-/* ─── Keyframes ───────────────────────────────────────────── */
 const blink = keyframes`
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
@@ -41,7 +39,6 @@ const fadeUp = keyframes`
   to   { opacity: 1; transform: translateY(0); }
 `;
 
-/* ─── Layout ──────────────────────────────────────────────── */
 const Container = styled.div`
   min-height: 100vh;
   width: 100vw;
@@ -51,7 +48,6 @@ const Container = styled.div`
   position: relative;
   overflow-x: hidden;
 
-  /* subtle scanline overlay */
   &::before {
     content: '';
     pointer-events: none;
@@ -67,7 +63,6 @@ const Container = styled.div`
     z-index: 100;
   }
 
-  /* moving scan beam */
   &::after {
     content: '';
     pointer-events: none;
@@ -80,7 +75,6 @@ const Container = styled.div`
   }
 `;
 
-/* ─── Navbar ──────────────────────────────────────────────── */
 const Navbar = styled.nav`
   display: flex;
   justify-content: space-between;
@@ -121,7 +115,6 @@ const NavLinks = styled.div`
   a:hover { text-decoration: underline; }
 `;
 
-/* ─── Hero ────────────────────────────────────────────────── */
 const Hero = styled.section`
   width: 100%;
   text-align: center;
@@ -148,6 +141,7 @@ const Title = styled.h1`
   line-height: 1;
   margin-bottom: 10px;
   letter-spacing: 2px;
+  color: var(--ink);
 `;
 
 const Cursor = styled.span`
@@ -161,7 +155,7 @@ const Cursor = styled.span`
 `;
 
 const Subtitle = styled.p`
-  color: var(--ink-muted);
+  color: var(--ink);
   font-size: 13px;
   letter-spacing: 2px;
   margin-bottom: 28px;
@@ -179,7 +173,7 @@ const SearchWrap = styled.div`
 const SearchPrefix = styled.span`
   position: absolute;
   left: 14px;
-  color: var(--ink-muted);
+  color: var(--ink);
   pointer-events: none;
   font-size: 14px;
 `;
@@ -204,7 +198,6 @@ const Search = styled.input`
   &::placeholder { color: #b0a898; }
 `;
 
-/* ─── Section ─────────────────────────────────────────────── */
 const Section = styled.section`
   width: 100%;
   max-width: 1160px;
@@ -227,16 +220,16 @@ const SectionTitle = styled.h2`
   font-family: var(--font-display);
   font-size: 22px;
   letter-spacing: 1px;
+  color: var(--ink);
 `;
 
 const SectionMeta = styled.span`
   font-size: 10px;
   letter-spacing: 1px;
-  color: var(--ink-muted);
+  color: var(--ink);
   text-transform: uppercase;
 `;
 
-/* ─── Cards ───────────────────────────────────────────────── */
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -280,7 +273,7 @@ const AppIcon = styled.div`
 const AppVersion = styled.span`
   font-size: 10px;
   letter-spacing: 1px;
-  color: var(--ink-muted);
+  color: var(--ink);
   border: 1px solid currentColor;
   padding: 1px 5px;
 `;
@@ -293,7 +286,7 @@ const AppName = styled.h3`
 
 const AppDesc = styled.p`
   font-size: 11px;
-  color: var(--ink-muted);
+  color: var(--ink);
   margin-bottom: 16px;
   line-height: 1.5;
 `;
@@ -312,7 +305,6 @@ const Button = styled.button`
   &:hover { background: var(--accent); }
 `;
 
-/* ─── List ────────────────────────────────────────────────── */
 const List = styled.div`
   background: var(--surface);
   border: var(--border);
@@ -346,7 +338,7 @@ const ListDot = styled.span`
 
 const ListMeta = styled.span`
   font-size: 11px;
-  color: var(--ink-muted);
+  color: var(--ink);
 `;
 
 const DownloadBtn = styled.button`
@@ -362,7 +354,6 @@ const DownloadBtn = styled.button`
   &:hover { background: var(--ink); color: var(--surface); }
 `;
 
-/* ─── Feature Tags ────────────────────────────────────────── */
 const TagGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -386,19 +377,17 @@ const Tag = styled.div`
   }
 `;
 
-/* ─── Footer ──────────────────────────────────────────────── */
 const Footer = styled.footer`
   width: 100%;
   text-align: center;
   padding: 20px;
   font-size: 11px;
   letter-spacing: 2px;
-  color: var(--ink-muted);
+  color: var(--ink);
   border-top: var(--border);
   text-transform: uppercase;
 `;
 
-/* ─── Data ────────────────────────────────────────────────── */
 const APPS = [
   { name: "Chrome",     icon: "C", version: "v49.0", desc: "Última versão suportada no Windows XP." },
   { name: "Photoshop",  icon: "P", version: "v7.0",  desc: "Clássico de 2002, leve e poderoso." },
@@ -413,7 +402,6 @@ const RECENT = [
 
 const TAGS = ["Compatibilidade", "Performance", "Sistemas Antigos", "Nostalgia", "Código Aberto", "Freeware"];
 
-/* ─── App ─────────────────────────────────────────────────── */
 export default function App() {
   const [query, setQuery] = useState("");
 
@@ -435,7 +423,6 @@ export default function App() {
 
         <main style={{ flex: 1 }}>
           <Hero>
-            <HeroBadge>Arquivo Digital</HeroBadge>
             <Title>Softwares Antigos<Cursor /></Title>
             <Subtitle>Compatibilidade · Performance · Nostalgia</Subtitle>
             <SearchWrap>
