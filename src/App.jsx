@@ -402,6 +402,112 @@ const RECENT = [
 
 const TAGS = ["Compatibilidade", "Performance", "Sistemas Antigos", "Nostalgia", "Código Aberto", "Freeware"];
 
+const reviews = [
+  {
+    initials: "RV",
+    username: "retro_vinicius",
+    os: "WinXP",
+    software: "Winamp_5.666.exe",
+    text: "Continua perfeito para máquinas antigas. Ocupa menos de 5MB e não trava nem no Pentium 4. Saudades da época em que software era software.",
+    stars: 5,
+    date: "mar 2026",
+  },
+  {
+    initials: "CS",
+    username: "cassete_saudade",
+    os: "Win7",
+    software: "Photoshop v7.0",
+    text: "Instalei num notebook que o PS moderno nem roda. Faz tudo que eu preciso — recorte, ajuste de curvas, salvar em PSD. Zero bloatware, zero subscription.",
+    stars: 4,
+    date: "fev 2026",
+  },
+  {
+    initials: "TK",
+    username: "teclado286",
+    os: "Vista",
+    software: "Firefox_3.6.28.exe",
+    text: "Uso numa LAN house que ainda tem máquinas de 2007. Roda suave, abre rápido. Não é pra navegar em tudo, mas pra sites simples ainda dá conta do recado.",
+    stars: 3,
+    date: "jan 2026",
+  },
+  {
+    initials: "MA",
+    username: "modem_56k_ana",
+    os: "Win10",
+    software: "uTorrent v2.2.1",
+    text: "Antes de virar aquele monstro cheio de anúncio. Essa versão é pura — barra de progresso, velocidade, nada mais. Downgrade que vale muito a pena.",
+    stars: 5,
+    date: "abr 2026",
+  },
+];
+
+function Stars({ count }) {
+  return (
+    <span style={{ letterSpacing: "2px", fontSize: "0.7rem", color: "var(--ink)" }}>
+      {Array.from({ length: 5 }, (_, i) =>
+        i < count ? "■" : "□"
+      ).join("")}
+    </span>
+  );
+}
+
+function UserReviews() {
+  return (
+    <Section $delay=".4s" style={{ paddingTop: 0 }}>
+      <SectionHeader>
+        <SectionTitle>Recomendações</SectionTitle>
+        <SectionMeta>{reviews.length} usuários</SectionMeta>
+      </SectionHeader>
+      <Grid>
+        {reviews.map((r) => (
+          <Card key={r.username}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.5rem" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <div
+                  style={{
+                    width: 28, height: 28,
+                    background: "var(--ink)", color: "var(--surface)",
+                    fontSize: "11px", fontWeight: 700,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    letterSpacing: "0.04em", flexShrink: 0,
+                  }}
+                >
+                  {r.initials}
+                </div>
+                <span style={{ fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.04em", color: "var(--ink)" }}>
+                  {r.username}
+                </span>
+              </div>
+              <span
+                style={{
+                  fontSize: "0.6rem", letterSpacing: "0.08em",
+                  textTransform: "uppercase", color: "var(--ink)",
+                  border: "1px solid var(--ink)", padding: "1px 5px",
+                }}
+              >
+                {r.os}
+              </span>
+            </div>
+
+            <div style={{ fontSize: "0.65rem", color: "var(--ink-muted)", letterSpacing: "0.04em", borderBottom: "1px dashed var(--border)", paddingBottom: "0.5rem", marginBottom: "0.5rem" }}>
+              ▪ {r.software}
+            </div>
+
+            <p style={{ fontSize: "0.72rem", lineHeight: 1.6, color: "var(--ink)", margin: 0, marginBottom: "0.5rem", flexGrow: 1 }}>
+              {r.text}
+            </p>
+
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "0.5rem" }}>
+              <Stars count={r.stars} />
+              <span style={{ fontSize: "0.6rem", color: "var(--ink-muted)", letterSpacing: "0.06em" }}>{r.date}</span>
+            </div>
+          </Card>
+        ))}
+      </Grid>
+    </Section>
+  );
+}
+
 export default function App() {
   const [query, setQuery] = useState("");
 
@@ -484,6 +590,8 @@ export default function App() {
               {TAGS.map((t) => <Tag key={t}>{t}</Tag>)}
             </TagGrid>
           </Section>
+
+          <UserReviews />
         </main>
 
         <Footer>© 1998–2026 OldVersion Archive · Preservando o passado digital</Footer>
