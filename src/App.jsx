@@ -49,7 +49,7 @@ const Container = styled.div`
   overflow-x: hidden;
 
   &::before {
-    content: '';
+    content: "";
     pointer-events: none;
     position: fixed;
     inset: 0;
@@ -57,19 +57,20 @@ const Container = styled.div`
       0deg,
       transparent,
       transparent 3px,
-      rgba(0,0,0,0.03) 3px,
-      rgba(0,0,0,0.03) 4px
+      rgba(0, 0, 0, 0.03) 3px,
+      rgba(0, 0, 0, 0.03) 4px
     );
     z-index: 100;
   }
 
   &::after {
-    content: '';
+    content: "";
     pointer-events: none;
     position: fixed;
-    left: 0; right: 0;
+    left: 0;
+    right: 0;
     height: 3px;
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
     animation: ${scanline} 6s linear infinite;
     z-index: 101;
   }
@@ -112,7 +113,9 @@ const NavLinks = styled.div`
     font-size: 14px;
   }
 
-  a:hover { text-decoration: underline; }
+  a:hover {
+    text-decoration: underline;
+  }
 `;
 
 const Hero = styled.section`
@@ -120,7 +123,7 @@ const Hero = styled.section`
   text-align: center;
   padding: 72px 20px 64px;
   border-bottom: var(--border);
-  animation: ${fadeUp} .5s ease both;
+  animation: ${fadeUp} 0.5s ease both;
   position: relative;
 `;
 
@@ -188,14 +191,16 @@ const Search = styled.input`
   font-size: 14px;
   color: var(--ink);
   box-shadow: var(--shadow);
-  transition: box-shadow .15s;
+  transition: box-shadow 0.15s;
 
   &:focus {
     outline: none;
     box-shadow: 6px 6px 0 var(--accent);
   }
 
-  &::placeholder { color: #b0a898; }
+  &::placeholder {
+    color: #b0a898;
+  }
 `;
 
 const Section = styled.section`
@@ -203,8 +208,8 @@ const Section = styled.section`
   max-width: 1160px;
   margin: 0 auto;
   padding: 48px 24px;
-  animation: ${fadeUp} .6s ease both;
-  animation-delay: ${({ $delay }) => $delay || '0s'};
+  animation: ${fadeUp} 0.6s ease both;
+  animation-delay: ${({ $delay }) => $delay || "0s"};
 `;
 
 const SectionHeader = styled.div`
@@ -242,7 +247,9 @@ const Card = styled.div`
   border-radius: 0;
   padding: 20px;
   box-shadow: var(--shadow);
-  transition: box-shadow .15s, transform .15s;
+  transition:
+    box-shadow 0.15s,
+    transform 0.15s;
   cursor: pointer;
 
   &:hover {
@@ -300,9 +307,11 @@ const Button = styled.button`
   font-size: 12px;
   letter-spacing: 1px;
   cursor: pointer;
-  transition: background .15s;
+  transition: background 0.15s;
 
-  &:hover { background: var(--accent); }
+  &:hover {
+    background: var(--accent);
+  }
 `;
 
 const List = styled.div`
@@ -317,10 +326,14 @@ const ListItem = styled.div`
   align-items: center;
   padding: 12px 16px;
   border-bottom: 1px dashed var(--ink);
-  transition: background .12s;
+  transition: background 0.12s;
 
-  &:last-child { border-bottom: none; }
-  &:hover { background: #f0e8d0; }
+  &:last-child {
+    border-bottom: none;
+  }
+  &:hover {
+    background: #f0e8d0;
+  }
 `;
 
 const ListName = styled.span`
@@ -331,7 +344,8 @@ const ListName = styled.span`
 `;
 
 const ListDot = styled.span`
-  width: 6px; height: 6px;
+  width: 6px;
+  height: 6px;
   background: var(--accent);
   display: inline-block;
 `;
@@ -349,9 +363,14 @@ const DownloadBtn = styled.button`
   letter-spacing: 1px;
   padding: 4px 10px;
   cursor: pointer;
-  transition: background .12s, color .12s;
+  transition:
+    background 0.12s,
+    color 0.12s;
 
-  &:hover { background: var(--ink); color: var(--surface); }
+  &:hover {
+    background: var(--ink);
+    color: var(--surface);
+  }
 `;
 
 const TagGrid = styled.div`
@@ -369,7 +388,9 @@ const Tag = styled.div`
   text-transform: uppercase;
   box-shadow: 3px 3px 0 var(--ink);
   cursor: default;
-  transition: box-shadow .12s, transform .12s;
+  transition:
+    box-shadow 0.12s,
+    transform 0.12s;
 
   &:hover {
     box-shadow: 3px 3px 0 var(--accent);
@@ -389,18 +410,40 @@ const Footer = styled.footer`
 `;
 
 const APPS = [
-  { name: "Chrome",     icon: "C", version: "v49.0", desc: "Última versão suportada no Windows XP." },
-  { name: "Photoshop",  icon: "P", version: "v7.0",  desc: "Clássico de 2002, leve e poderoso." },
-  { name: "uTorrent",   icon: "u", version: "v2.2.1",desc: "Antes de virar bloatware." },
+  {
+    name: "Chrome",
+    icon: "C",
+    version: "v49.0",
+    desc: "Última versão suportada no Windows XP.",
+  },
+  {
+    name: "Photoshop",
+    icon: "P",
+    version: "v7.0",
+    desc: "Clássico de 2002, leve e poderoso.",
+  },
+  {
+    name: "uTorrent",
+    icon: "u",
+    version: "v2.2.1",
+    desc: "Antes de virar bloatware.",
+  },
 ];
 
 const RECENT = [
-  { name: "Winamp_5.666.exe",    size: "4.2 MB",  date: "2013" },
-  { name: "Firefox_3.6.28.exe",  size: "8.1 MB",  date: "2012" },
-  { name: "VLC_0.9.10.exe",      size: "15.3 MB", date: "2009" },
+  { name: "Winamp_5.666.exe", size: "4.2 MB", date: "2013" },
+  { name: "Firefox_3.6.28.exe", size: "8.1 MB", date: "2012" },
+  { name: "VLC_0.9.10.exe", size: "15.3 MB", date: "2009" },
 ];
 
-const TAGS = ["Compatibilidade", "Performance", "Sistemas Antigos", "Nostalgia", "Código Aberto", "Freeware"];
+const TAGS = [
+  "Compatibilidade",
+  "Performance",
+  "Sistemas Antigos",
+  "Nostalgia",
+  "Código Aberto",
+  "Freeware",
+];
 
 const reviews = [
   {
@@ -443,10 +486,10 @@ const reviews = [
 
 function Stars({ count }) {
   return (
-    <span style={{ letterSpacing: "2px", fontSize: "0.7rem", color: "var(--ink)" }}>
-      {Array.from({ length: 5 }, (_, i) =>
-        i < count ? "■" : "□"
-      ).join("")}
+    <span
+      style={{ letterSpacing: "2px", fontSize: "0.7rem", color: "var(--ink)" }}
+    >
+      {Array.from({ length: 5 }, (_, i) => (i < count ? "■" : "□")).join("")}
     </span>
   );
 }
@@ -461,45 +504,101 @@ function UserReviews() {
       <Grid>
         {reviews.map((r) => (
           <Card key={r.username}>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "0.5rem" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                marginBottom: "0.5rem",
+              }}
+            >
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                 <div
                   style={{
-                    width: 28, height: 28,
-                    background: "var(--ink)", color: "var(--surface)",
-                    fontSize: "11px", fontWeight: 700,
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    letterSpacing: "0.04em", flexShrink: 0,
+                    width: 28,
+                    height: 28,
+                    background: "var(--ink)",
+                    color: "var(--surface)",
+                    fontSize: "11px",
+                    fontWeight: 700,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    letterSpacing: "0.04em",
+                    flexShrink: 0,
                   }}
                 >
                   {r.initials}
                 </div>
-                <span style={{ fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.04em", color: "var(--ink)" }}>
+                <span
+                  style={{
+                    fontSize: "0.75rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.04em",
+                    color: "var(--ink)",
+                  }}
+                >
                   {r.username}
                 </span>
               </div>
               <span
                 style={{
-                  fontSize: "0.6rem", letterSpacing: "0.08em",
-                  textTransform: "uppercase", color: "var(--ink)",
-                  border: "1px solid var(--ink)", padding: "1px 5px",
+                  fontSize: "0.6rem",
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  color: "var(--ink)",
+                  border: "1px solid var(--ink)",
+                  padding: "1px 5px",
                 }}
               >
                 {r.os}
               </span>
             </div>
 
-            <div style={{ fontSize: "0.65rem", color: "var(--ink-muted)", letterSpacing: "0.04em", borderBottom: "1px dashed var(--border)", paddingBottom: "0.5rem", marginBottom: "0.5rem" }}>
+            <div
+              style={{
+                fontSize: "0.65rem",
+                color: "var(--ink-muted)",
+                letterSpacing: "0.04em",
+                borderBottom: "1px dashed var(--border)",
+                paddingBottom: "0.5rem",
+                marginBottom: "0.5rem",
+              }}
+            >
               ▪ {r.software}
             </div>
 
-            <p style={{ fontSize: "0.72rem", lineHeight: 1.6, color: "var(--ink)", margin: 0, marginBottom: "0.5rem", flexGrow: 1 }}>
+            <p
+              style={{
+                fontSize: "0.72rem",
+                lineHeight: 1.6,
+                color: "var(--ink)",
+                margin: 0,
+                marginBottom: "0.5rem",
+                flexGrow: 1,
+              }}
+            >
               {r.text}
             </p>
 
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "0.5rem" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                marginTop: "0.5rem",
+              }}
+            >
               <Stars count={r.stars} />
-              <span style={{ fontSize: "0.6rem", color: "var(--ink-muted)", letterSpacing: "0.06em" }}>{r.date}</span>
+              <span
+                style={{
+                  fontSize: "0.6rem",
+                  color: "var(--ink-muted)",
+                  letterSpacing: "0.06em",
+                }}
+              >
+                {r.date}
+              </span>
             </div>
           </Card>
         ))}
@@ -529,14 +628,17 @@ export default function App() {
 
         <main style={{ flex: 1 }}>
           <Hero>
-            <Title>Softwares Antigos<Cursor /></Title>
+            <Title>
+              Softwares Antigos
+              <Cursor />
+            </Title>
             <Subtitle>Compatibilidade · Performance · Nostalgia</Subtitle>
             <SearchWrap>
               <SearchPrefix>&gt;_</SearchPrefix>
               <Search
                 placeholder="buscar.exe..."
                 value={query}
-                onChange={e => setQuery(e.target.value)}
+                onChange={(e) => setQuery(e.target.value)}
               />
             </SearchWrap>
           </Hero>
@@ -587,14 +689,18 @@ export default function App() {
               <SectionTitle>Por que usar?</SectionTitle>
             </SectionHeader>
             <TagGrid>
-              {TAGS.map((t) => <Tag key={t}>{t}</Tag>)}
+              {TAGS.map((t) => (
+                <Tag key={t}>{t}</Tag>
+              ))}
             </TagGrid>
           </Section>
 
           <UserReviews />
         </main>
 
-        <Footer>© 1998–2026 OldVersion Archive · Preservando o passado digital</Footer>
+        <Footer>
+          © 1998–2026 OldVersion Archive · Preservando o passado digital
+        </Footer>
       </Container>
     </>
   );
