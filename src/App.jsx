@@ -620,9 +620,9 @@ export default function App() {
             <Tagline>Because newer is not always better</Tagline>
           </LogoWrap>
           <NavLinks>
-            <a href="#">Categorias</a>
-            <a href="#">Populares</a>
-            <a href="#">Contribuir</a>
+            <a href="#categorias">Categorias</a>
+            <a href="#populares">Populares</a>
+            <a href="#contribuir">Contribuir</a>
           </NavLinks>
         </Navbar>
 
@@ -643,7 +643,7 @@ export default function App() {
             </SearchWrap>
           </Hero>
 
-          <Section $delay=".1s">
+          <Section id="populares" $delay=".1s">
             <SectionHeader>
               <SectionTitle>Populares</SectionTitle>
               <SectionMeta>3 programas</SectionMeta>
@@ -684,7 +684,7 @@ export default function App() {
             </List>
           </Section>
 
-          <Section $delay=".3s" style={{ paddingTop: 0 }}>
+          <Section id="categorias" $delay=".3s" style={{ paddingTop: 0 }}>
             <SectionHeader>
               <SectionTitle>Por que usar?</SectionTitle>
             </SectionHeader>
