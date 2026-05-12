@@ -698,7 +698,8 @@ export default function App() {
           <UserReviews />
         </main>
 
-        <Footer>
+        <Footer as="a" href="https://ko-fi.com/oldversion" target="_blank" rel="noopener noreferrer" id="contribuir">
+          <p>Contribua aqui</p>
           © 1998–2026 OldVersion Archive · Preservando o passado digital
         </Footer>
       </Container>
