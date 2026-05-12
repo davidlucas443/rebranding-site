@@ -1,5 +1,12 @@
 import React, { useState } from "react";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
+import Header from "./components/Navbar";
+import HeroComp from "./components/Hero";
+import Populars from "./components/Populars";
+import RecentComp from "./components/Recent";
+import TagsComp from "./components/Tags";
+import ReviewsComp from "./components/Reviews";
+import FooterLink from "./components/FooterLink";
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
@@ -415,25 +422,28 @@ const APPS = [
     icon: "C",
     version: "v49.0",
     desc: "Última versão suportada no Windows XP.",
+    url: "https://downloads.example.com/Chrome_v49.0.exe",
   },
   {
     name: "Photoshop",
     icon: "P",
     version: "v7.0",
     desc: "Clássico de 2002, leve e poderoso.",
+    url: "https://downloads.example.com/Photoshop_v7.0.zip",
   },
   {
     name: "uTorrent",
     icon: "u",
     version: "v2.2.1",
     desc: "Antes de virar bloatware.",
+    url: "https://downloads.example.com/uTorrent_v2.2.1.exe",
   },
 ];
 
 const RECENT = [
-  { name: "Winamp_5.666.exe", size: "4.2 MB", date: "2013" },
-  { name: "Firefox_3.6.28.exe", size: "8.1 MB", date: "2012" },
-  { name: "VLC_0.9.10.exe", size: "15.3 MB", date: "2009" },
+  { name: "Winamp_5.666.exe", size: "4.2 MB", date: "2013", url: "https://downloads.example.com/Winamp_5.666.exe" },
+  { name: "Firefox_3.6.28.exe", size: "8.1 MB", date: "2012", url: "https://downloads.example.com/Firefox_3.6.28.exe" },
+  { name: "VLC_0.9.10.exe", size: "15.3 MB", date: "2009", url: "https://downloads.example.com/VLC_0.9.10.exe" },
 ];
 
 const TAGS = [
@@ -484,128 +494,7 @@ const reviews = [
   },
 ];
 
-function Stars({ count }) {
-  return (
-    <span
-      style={{ letterSpacing: "2px", fontSize: "0.7rem", color: "var(--ink)" }}
-    >
-      {Array.from({ length: 5 }, (_, i) => (i < count ? "■" : "□")).join("")}
-    </span>
-  );
-}
-
-function UserReviews() {
-  return (
-    <Section $delay=".4s" style={{ paddingTop: 0 }}>
-      <SectionHeader>
-        <SectionTitle>Recomendações</SectionTitle>
-        <SectionMeta>{reviews.length} usuários</SectionMeta>
-      </SectionHeader>
-      <Grid>
-        {reviews.map((r) => (
-          <Card key={r.username}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                marginBottom: "0.5rem",
-              }}
-            >
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <div
-                  style={{
-                    width: 28,
-                    height: 28,
-                    background: "var(--ink)",
-                    color: "var(--surface)",
-                    fontSize: "11px",
-                    fontWeight: 700,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    letterSpacing: "0.04em",
-                    flexShrink: 0,
-                  }}
-                >
-                  {r.initials}
-                </div>
-                <span
-                  style={{
-                    fontSize: "0.75rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.04em",
-                    color: "var(--ink)",
-                  }}
-                >
-                  {r.username}
-                </span>
-              </div>
-              <span
-                style={{
-                  fontSize: "0.6rem",
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
-                  color: "var(--ink)",
-                  border: "1px solid var(--ink)",
-                  padding: "1px 5px",
-                }}
-              >
-                {r.os}
-              </span>
-            </div>
-
-            <div
-              style={{
-                fontSize: "0.65rem",
-                color: "var(--ink-muted)",
-                letterSpacing: "0.04em",
-                borderBottom: "1px dashed var(--border)",
-                paddingBottom: "0.5rem",
-                marginBottom: "0.5rem",
-              }}
-            >
-              ▪ {r.software}
-            </div>
-
-            <p
-              style={{
-                fontSize: "0.72rem",
-                lineHeight: 1.6,
-                color: "var(--ink)",
-                margin: 0,
-                marginBottom: "0.5rem",
-                flexGrow: 1,
-              }}
-            >
-              {r.text}
-            </p>
-
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                marginTop: "0.5rem",
-              }}
-            >
-              <Stars count={r.stars} />
-              <span
-                style={{
-                  fontSize: "0.6rem",
-                  color: "var(--ink-muted)",
-                  letterSpacing: "0.06em",
-                }}
-              >
-                {r.date}
-              </span>
-            </div>
-          </Card>
-        ))}
-      </Grid>
-    </Section>
-  );
-}
+// Reviews component was moved to src/components/Reviews.jsx
 
 export default function App() {
   const [query, setQuery] = useState("");
@@ -614,94 +503,21 @@ export default function App() {
     <>
       <GlobalStyle />
       <Container>
-        <Navbar>
-          <LogoWrap>
-            <Logo>OLDVERSION.EXE</Logo>
-            <Tagline>Because newer is not always better</Tagline>
-          </LogoWrap>
-          <NavLinks>
-            <a href="#categorias">Categorias</a>
-            <a href="#populares">Populares</a>
-            <a href="#contribuir">Contribuir</a>
-          </NavLinks>
-        </Navbar>
+        <Header />
 
         <main style={{ flex: 1 }}>
-          <Hero>
-            <Title>
-              Softwares Antigos
-              <Cursor />
-            </Title>
-            <Subtitle>Compatibilidade · Performance · Nostalgia</Subtitle>
-            <SearchWrap>
-              <SearchPrefix>&gt;_</SearchPrefix>
-              <Search
-                placeholder="buscar.exe..."
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-              />
-            </SearchWrap>
-          </Hero>
+          <HeroComp query={query} setQuery={setQuery} />
 
-          <Section id="populares" $delay=".1s">
-            <SectionHeader>
-              <SectionTitle>Populares</SectionTitle>
-              <SectionMeta>3 programas</SectionMeta>
-            </SectionHeader>
-            <Grid>
-              {APPS.map((app) => (
-                <Card key={app.name}>
-                  <CardTop>
-                    <AppIcon>{app.icon}</AppIcon>
-                    <AppVersion>{app.version}</AppVersion>
-                  </CardTop>
-                  <AppName>{app.name}</AppName>
-                  <AppDesc>{app.desc}</AppDesc>
-                  <Button>[ Acessar ]</Button>
-                </Card>
-              ))}
-            </Grid>
-          </Section>
+          <Populars apps={APPS} />
 
-          <Section $delay=".2s" style={{ paddingTop: 0 }}>
-            <SectionHeader>
-              <SectionTitle>Adicionados Recentemente</SectionTitle>
-              <SectionMeta>atualizado hoje</SectionMeta>
-            </SectionHeader>
-            <List>
-              {RECENT.map((f) => (
-                <ListItem key={f.name}>
-                  <ListName>
-                    <ListDot />
-                    {f.name}
-                  </ListName>
-                  <ListMeta style={{ flex: 1, textAlign: "center" }}>
-                    {f.size} · {f.date}
-                  </ListMeta>
-                  <DownloadBtn>[ DOWNLOAD ]</DownloadBtn>
-                </ListItem>
-              ))}
-            </List>
-          </Section>
+          <RecentComp files={RECENT} />
 
-          <Section id="categorias" $delay=".3s" style={{ paddingTop: 0 }}>
-            <SectionHeader>
-              <SectionTitle>Por que usar?</SectionTitle>
-            </SectionHeader>
-            <TagGrid>
-              {TAGS.map((t) => (
-                <Tag key={t}>{t}</Tag>
-              ))}
-            </TagGrid>
-          </Section>
+          <TagsComp tags={TAGS} />
 
-          <UserReviews />
+          <ReviewsComp reviews={reviews} />
         </main>
 
-        <Footer as="a" href="https://ko-fi.com/oldversion" target="_blank" rel="noopener noreferrer" id="contribuir">
-          <p>Contribua aqui</p>
-          © 1998–2026 OldVersion Archive · Preservando o passado digital
-        </Footer>
+        <FooterLink />
       </Container>
     </>
   );
