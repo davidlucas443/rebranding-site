@@ -415,25 +415,28 @@ const APPS = [
     icon: "C",
     version: "v49.0",
     desc: "Última versão suportada no Windows XP.",
+    url: "/downloads/Chrome_v49.0.exe",
   },
   {
     name: "Photoshop",
     icon: "P",
     version: "v7.0",
     desc: "Clássico de 2002, leve e poderoso.",
+    url: "/downloads/Photoshop_v7.0.zip",
   },
   {
     name: "uTorrent",
     icon: "u",
     version: "v2.2.1",
     desc: "Antes de virar bloatware.",
+    url: "/downloads/uTorrent_v2.2.1.exe",
   },
 ];
 
 const RECENT = [
-  { name: "Winamp_5.666.exe", size: "4.2 MB", date: "2013" },
-  { name: "Firefox_3.6.28.exe", size: "8.1 MB", date: "2012" },
-  { name: "VLC_0.9.10.exe", size: "15.3 MB", date: "2009" },
+  { name: "Winamp_5.666.exe", size: "4.2 MB", date: "2013", url: "/downloads/Winamp_5.666.exe" },
+  { name: "Firefox_3.6.28.exe", size: "8.1 MB", date: "2012", url: "/downloads/Firefox_3.6.28.exe" },
+  { name: "VLC_0.9.10.exe", size: "15.3 MB", date: "2009", url: "/downloads/VLC_0.9.10.exe" },
 ];
 
 const TAGS = [
