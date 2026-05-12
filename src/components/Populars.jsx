@@ -127,7 +127,7 @@ export default function Populars({ apps }) {
             </CardTop>
             <AppName>{app.name}</AppName>
             <AppDesc>{app.desc}</AppDesc>
-            <Button href={app.url || "#"} download>
+            <Button href={app.url || "#"} download={app.name}>
               [ Acessar ]
             </Button>
           </Card>

@@ -101,7 +101,7 @@ export default function Recent({ files }) {
             <ListMeta style={{ flex: 1, textAlign: "center" }}>
               {f.size} · {f.date}
             </ListMeta>
-            <DownloadBtn href={f.url || "#"} download>
+            <DownloadBtn href={f.url || "#"} download={f.name}>
               [ DOWNLOAD ]
             </DownloadBtn>
           </ListItem>
