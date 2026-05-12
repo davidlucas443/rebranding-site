@@ -72,6 +72,20 @@ const Search = styled.input`
   font-size: 14px;
   color: var(--ink);
   box-shadow: var(--shadow);
+
+  &::placeholder {
+    color: #000;
+    opacity: 1;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: #000;
+    -webkit-box-shadow: 0 0 0 1000px var(--surface) inset;
+    box-shadow: 0 0 0 1000px var(--surface) inset;
+    transition: background-color 9999s ease-out 0s;
+  }
 `;
 
 export default function Hero({ query, setQuery }) {

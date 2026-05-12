@@ -55,7 +55,7 @@ const ListName = styled.span`
 const ListDot = styled.span`
   width: 6px;
   height: 6px;
-  background: var(--accent);
+  background: #000;
   display: inline-block;
 `;
 
@@ -74,6 +74,14 @@ const DownloadBtn = styled.a`
   cursor: pointer;
   text-decoration: none;
   color: var(--ink);
+  transition:
+    background 0.12s,
+    color 0.12s;
+
+  &:hover {
+    background: #000;
+    color: var(--surface);
+  }
 `;
 
 export default function Recent({ files }) {
@@ -93,7 +101,7 @@ export default function Recent({ files }) {
             <ListMeta style={{ flex: 1, textAlign: "center" }}>
               {f.size} · {f.date}
             </ListMeta>
-            <DownloadBtn href={f.url || "#"} target="_blank" rel="noreferrer">
+            <DownloadBtn href={f.url || "#"} download>
               [ DOWNLOAD ]
             </DownloadBtn>
           </ListItem>

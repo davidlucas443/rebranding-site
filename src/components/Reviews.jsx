@@ -43,6 +43,14 @@ const Card = styled.div`
   border-radius: 0;
   padding: 20px;
   box-shadow: var(--shadow);
+  transition:
+    box-shadow 0.15s,
+    transform 0.15s;
+
+  &:hover {
+    box-shadow: 6px 6px 0 #000;
+    transform: translate(-2px, -2px);
+  }
 `;
 
 function Stars({ count }) {
@@ -73,7 +81,7 @@ export default function Reviews({ reviews }) {
               <span style={{ fontSize: "0.6rem", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink)", border: "1px solid var(--ink)", padding: "1px 5px" }}>{r.os}</span>
             </div>
 
-            <div style={{ fontSize: "0.65rem", color: "var(--ink-muted)", letterSpacing: "0.04em", borderBottom: "1px dashed var(--border)", paddingBottom: "0.5rem", marginBottom: "0.5rem" }}>
+            <div style={{ fontSize: "0.65rem", color: "var(--ink-muted)", letterSpacing: "0.04em", borderBottom: "1px dashed #000", paddingBottom: "0.5rem", marginBottom: "0.5rem" }}>
               ▪ {r.software}
             </div>
 

@@ -43,6 +43,14 @@ const Card = styled.div`
   border-radius: 0;
   padding: 20px;
   box-shadow: var(--shadow);
+  transition:
+    box-shadow 0.15s,
+    transform 0.15s;
+
+  &:hover {
+    box-shadow: 6px 6px 0 #000;
+    transform: translate(-2px, -2px);
+  }
 `;
 
 const CardTop = styled.div`
@@ -96,6 +104,11 @@ const Button = styled.a`
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
+  transition: background 0.15s;
+
+  &:hover {
+    background: #000;
+  }
 `;
 
 export default function Populars({ apps }) {
@@ -114,7 +127,7 @@ export default function Populars({ apps }) {
             </CardTop>
             <AppName>{app.name}</AppName>
             <AppDesc>{app.desc}</AppDesc>
-            <Button href={app.url || "#"} target="_blank" rel="noreferrer">
+            <Button href={app.url || "#"} download>
               [ Acessar ]
             </Button>
           </Card>

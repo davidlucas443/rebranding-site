@@ -6,8 +6,8 @@ const NavbarWrap = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 16px 32px;
-  background: #d6c7a1;
-  border-bottom: 3px solid #2d2a26;
+  background: #000000;
+  border-bottom: 3px solid #000000;
 `;
 
 const LogoWrap = styled.div`
@@ -26,7 +26,7 @@ const Logo = styled.span`
 const Tagline = styled.span`
   font-size: 12px;
   letter-spacing: 1px;
-  color: #5c554a;
+  color: #ffffff;
 `;
 
 const NavLinks = styled.div`
